@@ -5,6 +5,13 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
+    "prod": "NODE_ENV=production node index.js",
+    "docker:build": "docker build -t dashboard-api .",
+    "docker:run": "docker run -p 5000:5000 --env-file .env dashboard-api",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f api",
+    "health": "curl -f http://localhost:5000/api/health || exit 1",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
