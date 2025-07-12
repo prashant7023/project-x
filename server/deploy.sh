@@ -47,7 +47,7 @@ max_attempts=30
 attempt=1
 
 while [ $attempt -le $max_attempts ]; do
-    if curl -f http://localhost:5000/api/health > /dev/null 2>&1; then
+    if curl -f https://dashboard-api-6lqa.onrender.com/api/health > /dev/null 2>&1; then
         echo "✅ API is healthy!"
         break
     fi
@@ -70,8 +70,8 @@ docker-compose ps
 
 echo "🎉 Deployment completed successfully!"
 echo ""
-echo "🌐 API is available at: http://localhost:5000"
-echo "📊 Health check: http://localhost:5000/api/health"
+echo "🌐 API is available at: https://dashboard-api-6lqa.onrender.com"
+echo "📊 Health check: https://dashboard-api-6lqa.onrender.com/api/health"
 echo ""
 echo "📋 Useful commands:"
 echo "  - View logs: docker-compose logs -f"

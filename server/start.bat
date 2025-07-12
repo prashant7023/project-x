@@ -21,8 +21,8 @@ if not exist "node_modules" (
 
 REM Start the server
 echo 🌟 Starting server in development mode...
-echo 📡 Server will be available at: http://localhost:5000
-echo 🔗 API endpoints at: http://localhost:5000/api
+echo 📡 Server will be available at: https://dashboard-api-6lqa.onrender.com
+echo 🔗 API endpoints at: https://dashboard-api-6lqa.onrender.com/api
 echo.
 echo 📧 Make sure to configure your email settings in .env
 echo 🗄️  Make sure MongoDB is running

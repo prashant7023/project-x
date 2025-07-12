@@ -44,7 +44,7 @@ docker run -d -p 5000:5000 --name test-api prashant7023/dashboard-api:latest
 docker ps
 
 # Test the health endpoint
-curl http://localhost:5000/api/health
+curl https://dashboard-api-6lqa.onrender.com/api/health
 
 # Stop and remove test container
 docker stop test-api

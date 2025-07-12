@@ -94,7 +94,7 @@ npm run dev
 
 ### 4. Access the Application
 - **Frontend**: http://localhost:3000
-- **Backend**: http://localhost:5000
+- **Backend**: https://dashboard-api-6lqa.onrender.com
 
 ## ⚙️ Backend Setup
 
@@ -151,7 +151,7 @@ mongod
 Create a `.env.local` file in the root directory:
 
 ```env
-NEXT_PUBLIC_API_URL=http://localhost:5000/api
+NEXT_PUBLIC_API_URL=https://dashboard-api-6lqa.onrender.com/api
 ```
 
 ### Styling Customization

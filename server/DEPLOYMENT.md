@@ -245,7 +245,7 @@ docker-compose logs nginx
 
 - Check logs first: `docker-compose logs -f`
 - Verify environment variables
-- Test health endpoint: `curl http://localhost:5000/api/health`
+- Test health endpoint: `curl https://dashboard-api-6lqa.onrender.com/api/health`
 - Review security settings
 
 ## 🔗 Production Checklist

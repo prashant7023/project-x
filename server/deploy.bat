@@ -46,7 +46,7 @@ set max_attempts=30
 set attempt=1
 
 :health_check
-curl -f http://localhost:5000/api/health >nul 2>&1
+curl -f https://dashboard-api-6lqa.onrender.com/api/health >nul 2>&1
 if %errorlevel% equ 0 (
     echo ✅ API is healthy!
     goto health_success
@@ -71,8 +71,8 @@ docker-compose ps
 
 echo 🎉 Deployment completed successfully!
 echo.
-echo 🌐 API is available at: http://localhost:5000
-echo 📊 Health check: http://localhost:5000/api/health
+echo 🌐 API is available at: https://dashboard-api-6lqa.onrender.com
+echo 📊 Health check: https://dashboard-api-6lqa.onrender.com/api/health
 echo.
 echo 📋 Useful commands:
 echo   - View logs: docker-compose logs -f

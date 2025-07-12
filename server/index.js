@@ -102,6 +102,16 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/dashboard
 .then(() => console.log('✅ MongoDB connected successfully'))
 .catch(err => console.error('❌ MongoDB connection error:', err));
 
+// Root endpoint for Render service detection
+app.get('/', (req, res) => {
+  res.json({ 
+    success: true,
+    message: 'Dashboard API is running',
+    version: '1.0.0',
+    timestamp: new Date().toISOString()
+  });
+});
+
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/user', userRoutes);
@@ -175,10 +185,27 @@ app.use('*', (req, res) => {
 });
 
 const PORT = process.env.PORT || 5000;
+const HOST = process.env.HOST || '0.0.0.0';
 
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
+const server = app.listen(PORT, HOST, () => {
+  console.log(`🚀 Server running on ${HOST}:${PORT}`);
   console.log(`🌍 Environment: ${process.env.NODE_ENV || 'development'}`);
+  console.log(`🔗 Health check: http://${HOST}:${PORT}/api/health`);
+});
+
+// Graceful shutdown handling
+process.on('SIGTERM', () => {
+  console.log('🛑 SIGTERM received, shutting down gracefully');
+  server.close(() => {
+    console.log('✅ Process terminated');
+  });
+});
+
+process.on('SIGINT', () => {
+  console.log('🛑 SIGINT received, shutting down gracefully');
+  server.close(() => {
+    console.log('✅ Process terminated');
+  });
 });
 
 module.exports = app;

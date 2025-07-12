@@ -82,7 +82,7 @@ npm run dev
 npm start
 ```
 
-The server will start on `http://localhost:5000`
+The server will start on `https://dashboard-api-6lqa.onrender.com`
 
 ## 📱 API Endpoints
 

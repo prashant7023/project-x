@@ -1,0 +1,29 @@
+# Render.com Configuration File
+# This file contains deployment settings for Render
+
+# Build Settings
+buildCommand: npm install
+startCommand: npm start
+
+# Environment
+environment: node
+
+# Health Check
+healthCheckPath: /api/health
+
+# Auto Deploy
+autoDeploy: true
+
+# Service Settings
+region: oregon # or your preferred region
+plan: free # or your preferred plan
+
+# Environment Variables (set these in Render dashboard)
+# PORT (automatically set by Render)
+# NODE_ENV=production
+# MONGODB_URI=your-mongodb-connection-string
+# JWT_SECRET=your-jwt-secret
+# FRONTEND_URL=your-frontend-url
+
+# Dockerfile Support
+dockerfilePath: ./Dockerfile
