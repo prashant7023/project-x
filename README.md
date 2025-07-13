@@ -30,8 +30,22 @@ A modern, full-stack dashboard application with Email OTP authentication, beauti
 
 ## 🖥️ Live Demo
 
-- **Frontend**: [Deploy on Vercel](https://vercel.com/)
-- **Backend**: [Deploy on Railway](https://railway.app/)
+🌐 **Frontend (Vercel)**: [https://prashant-project-x-dashboard.vercel.app](https://prashant-project-x-dashboard.vercel.app)
+
+🚀 **Backend API (Render)**: [https://dashboard-api-6lqa.onrender.com](https://dashboard-api-6lqa.onrender.com)
+
+📋 **API Health Check**: [https://dashboard-api-6lqa.onrender.com/api/health](https://dashboard-api-6lqa.onrender.com/api/health)
+
+### 🎯 How to Test the Live Application
+
+1. **Visit the Frontend**: Go to [https://prashant-project-x-dashboard.vercel.app](https://prashant-project-x-dashboard.vercel.app)
+2. **Enter your email** in the authentication form
+3. **Check your email** for the 6-digit OTP code
+4. **Enter the OTP** and access the dashboard
+5. **Explore features**:
+   - View product analytics
+   - Navigate between tabs
+   - Responsive design on mobile/desktop
 
 ## 📱 Screenshots
 
@@ -72,8 +86,8 @@ A modern, full-stack dashboard application with Email OTP authentication, beauti
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/yourusername/dashboard-app.git
-cd dashboard-app
+git clone https://github.com/prashant7023/project-x.git
+cd project-x
 ```
 
 ### 2. Set Up the Backend
@@ -94,7 +108,9 @@ npm run dev
 
 ### 4. Access the Application
 - **Frontend**: http://localhost:3000
-- **Backend**: https://dashboard-api-6lqa.onrender.com
+- **Backend**: http://localhost:5000
+- **Live Frontend**: https://prashant-project-x-dashboard.vercel.app
+- **Live Backend**: https://dashboard-api-6lqa.onrender.com
 
 ## ⚙️ Backend Setup
 
@@ -104,11 +120,11 @@ Create a `.env` file in the `server` directory:
 ```env
 # Server Configuration
 PORT=5000
-NODE_ENV=development
-FRONTEND_URL=http://localhost:3000
+NODE_ENV=production
+FRONTEND_URL=http://localhost:3000,https://prashant-project-x-dashboard.vercel.app
 
 # Database Configuration
-MONGODB_URI=mongodb://localhost:27017/dashboard-app
+MONGODB_URI=your-mongodb-connection-string
 
 # JWT Configuration
 JWT_SECRET=your-super-secret-jwt-key-change-this-in-production
@@ -238,7 +254,41 @@ Authorization: Bearer <token>
 
 ## 🚀 Deployment
 
-### Frontend Deployment (Vercel)
+### ✅ Current Deployments
+
+- **Frontend**: Deployed on [Vercel](https://prashant-project-x-dashboard.vercel.app)
+- **Backend**: Deployed on [Render](https://dashboard-api-6lqa.onrender.com)
+- **Database**: MongoDB Atlas Cloud
+
+### 🔧 Deployment Configuration
+
+#### Frontend (Vercel)
+The frontend is automatically deployed from the `main` branch using Vercel's GitHub integration.
+
+**Environment Variables on Vercel:**
+```env
+NEXT_PUBLIC_API_URL=https://dashboard-api-6lqa.onrender.com/api
+```
+
+#### Backend (Render)
+The backend is deployed using Docker on Render.
+
+**Environment Variables on Render:**
+```env
+NODE_ENV=production
+PORT=5000
+MONGODB_URI=your-mongodb-atlas-connection-string
+JWT_SECRET=your-production-jwt-secret
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USER=your-email@gmail.com
+SMTP_PASS=your-app-password
+FRONTEND_URL=http://localhost:3000,https://prashant-project-x-dashboard.vercel.app
+```
+
+### Manual Deployment Instructions
+
+#### Frontend Deployment (Vercel)
 ```bash
 # Install Vercel CLI
 npm i -g vercel
@@ -250,23 +300,53 @@ vercel
 NEXT_PUBLIC_API_URL=https://your-backend-url.com/api
 ```
 
-### Backend Deployment (Railway)
+#### Backend Deployment (Render)
 ```bash
-# Install Railway CLI
-npm i -g @railway/cli
-
-# Deploy
-railway login
-railway init
-railway up
-
-# Add environment variables in Railway dashboard
+# The backend uses Docker deployment on Render
+# Docker image: prashant7023/dashboard-api:latest
+# Automatically deploys from Docker Hub when image is updated
 ```
 
 ### Alternative Deployment Options
-- **Frontend**: Netlify, Vercel, GitHub Pages
-- **Backend**: Railway, Render, Heroku, DigitalOcean
-- **Database**: MongoDB Atlas, PlanetScale
+- **Frontend**: Netlify, Vercel, GitHub Pages, Surge
+- **Backend**: Railway, Render, Heroku, DigitalOcean, AWS
+- **Database**: MongoDB Atlas, PlanetScale, FaunaDB
+
+## 📊 Deployment Status
+
+### ✅ Production Status
+- **Frontend**: ✅ Live at [prashant-project-x-dashboard.vercel.app](https://prashant-project-x-dashboard.vercel.app)
+- **Backend API**: ✅ Live at [dashboard-api-6lqa.onrender.com](https://dashboard-api-6lqa.onrender.com)
+- **Database**: ✅ MongoDB Atlas Cloud
+- **Email Service**: ✅ Gmail SMTP
+- **CORS**: ✅ Configured for Vercel domain
+
+### 🔍 API Endpoints (Live)
+- **Health Check**: `GET https://dashboard-api-6lqa.onrender.com/api/health`
+- **Send OTP**: `POST https://dashboard-api-6lqa.onrender.com/api/auth/send-otp`
+- **Verify OTP**: `POST https://dashboard-api-6lqa.onrender.com/api/auth/verify-otp`
+- **Get Products**: `GET https://dashboard-api-6lqa.onrender.com/api/products`
+- **Analytics**: `GET https://dashboard-api-6lqa.onrender.com/api/products/analytics`
+
+### 🛠️ Troubleshooting
+
+#### Common Issues
+1. **CORS Errors**: The backend is configured to allow requests from the Vercel domain
+2. **Slow Initial Load**: Render services may take 30-60 seconds to wake up if idle
+3. **Email Delivery**: Check spam folder for OTP emails
+
+#### Testing the Application
+1. Visit the live frontend URL
+2. Enter a valid email address
+3. Check email for OTP (including spam folder)
+4. Enter the 6-digit code
+5. Explore the dashboard features
+
+## 📂 Repository Information
+
+- **Repository**: [https://github.com/prashant7023/project-x](https://github.com/prashant7023/project-x)
+- **Branch**: `main`
+- **Latest Commit**: Production-ready with full deployment
 
 ## 📁 Project Structure
 

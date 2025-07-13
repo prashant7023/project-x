@@ -24,9 +24,5 @@ USER nodejs
 # Expose port
 EXPOSE 5000
 
-# Health check
-HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-  CMD curl -f https://dashboard-api-6lqa.onrender.com/api/health || exit 1
-
 # Start the application
-CMD ["npm", "start"]
+CMD ["node", "index.js"]
